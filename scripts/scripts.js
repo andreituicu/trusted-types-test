@@ -10,6 +10,7 @@ import {
   loadSection,
   loadSections,
   loadCSS,
+  loadScript,
 } from './aem.js';
 
 /**
@@ -155,6 +156,8 @@ async function loadEager(doc) {
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
+  await loadScript('https://code.jquery.com/jquery-3.7.1.min.js');
+
   loadHeader(doc.querySelector('header'));
 
   const main = doc.querySelector('main');
